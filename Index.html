@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petizione contro la nuova Legge sulla strada</title>
+    <style>
+        /* Corpo della pagina */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden; /* Impedisce la visualizzazione di eventuali barre di scorrimento */
+        }
+
+        /* Iframe come sfondo */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;  /* Mette il video dietro il contenuto */
+            border: none;
+        }
+
+        /* Titolo della pagina */
+        h1 {
+            font-size: 3em;
+            margin-top: 20%;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Testo di descrizione */
+        p {
+            font-size: 1.2em;
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Stile del pulsante */
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Immagine che si aprirà dopo il clic */
+        .image-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        /* Nuvoletta con il testo sopra l'immagine */
+        .text-bubble {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video come sfondo -->
+    <iframe id="background-video" width="100%" height="100%" src="https://www.youtube.com/embed/QqUTRCYlut0?autoplay=1&loop=1&playlist=QqUTRCYlut0&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <!-- Titolo della pagina -->
+    <h1>Petizione contro la nuova Legge sulla Strada</h1>
+
+    <!-- Descrizione -->
+    <p>Firmiamo insieme per abolire la nuova legge sulla strada. Clicca qui sotto per firmare!</p>
+
+    <!-- Pulsante per firmare la petizione -->
+    <a href="#" class="button" onclick="handleClick()">Firma la Petizione</a>
+
+    <!-- Contenitore dell'immagine che si apre -->
+    <div class="image-container" id="image-container">
+        <img src="https://pics.serviporno.com/videos/e/0/d/d/6/e0dd6b763a22b4d9535ccb94fe02f027e81f9d47.mp4-preview-3.jpg" alt="Immagine" style="width: 100%; max-width: 600px;">
+        <div class="text-bubble">I Love Salvini</div>
+    </div>
+
+    <script>
+        // Variabile per contare i clic
+        let clickCount = 0;
+
+        // Funzione per gestire i clic sul pulsante
+        function handleClick() {
+            clickCount++; // Incrementa il contatore di clic
+
+            var imageContainer = document.getElementById("image-container");
+
+            // Mostra l'immagine la prima volta, aggiungi la nuvoletta la seconda volta, nascondi la terza volta
+            if (clickCount === 1) {
+                imageContainer.style.display = "block"; // Mostra l'immagine
+            } else if (clickCount === 2) {
+                // Aggiungi la nuvoletta con il testo "I Love Salvini"
+                var textBubble = document.createElement("div");
+                textBubble.classList.add("text-bubble");
+                textBubble.textContent = "I Love Salvini";
+                imageContainer.appendChild(textBubble);
+            } else if (clickCount === 3) {
+                // Nascondi l'immagine
+                imageContainer.style.display = "none";
+                clickCount = 0; // Reset del contatore
+            }
+        }
+    </script>
+
+</body>
+</html>
